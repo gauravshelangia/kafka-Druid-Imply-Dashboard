@@ -1,0 +1,43 @@
+Requirements:
+Apache kafka
+Druid
+Imply visualisation tool
+
+
+
+Setup for imply: single node
+download impy from : https://static.imply.io/release/imply-2.6.11.tar.gz
+  wget https://static.imply.io/release/imply-2.6.11.tar.gz
+extract
+  tar -xzf imply-2.6.11.tar.gz
+go to imply directory (cd imply*)
+
+Now to start Imply run the following command:
+  bin/supervise -c conf/supervise/quickstart.conf
+now this command will start the different services of druid
+and you can see the detialed log of each service in var/sv directory
+
+NOTE:
+1. Verify imply-UI started : go to localhost:9095 in your browser
+2. check druid coordinator: localhost:8090
+
+
+KAFKA :
+1.download kafka
+  wget http://www-us.apache.org/dist/kafka/0.10.2.0/kafka_2.11-2.0.0.tgz
+2. extract kafka
+  tar -xzf kafka_2.11-2.0.0.tgz
+3.go kafka directory
+  cd kafka_2.11-2.0.0
+4. Start kafka broker using following command
+   ./bin/kafka-server-start.sh config/server.properties
+
+Now create a topic using following command
+./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic affable
+
+
+ENABLE Kafka druid injestion:
+  SAMPLE:
+    curl -XPOST -H'Content-Type: application/json' -d @quickstart/wikipedia-kafka-supervisor.json http://localhost:8090/druid/indexer/v1/supervisor
+
+    curl -XPOST -H'Content-Type: application/json' -d @../mockstagram_supervisor_spec.json http://localhost:8090/druid/indexer/v1/supervisor

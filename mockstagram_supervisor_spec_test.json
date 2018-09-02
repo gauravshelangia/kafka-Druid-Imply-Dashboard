@@ -1,0 +1,59 @@
+{
+  "type": "kafka",
+  "dataSchema": {
+    "dataSource": "mockstagram-affable-test",
+    "parser": {
+      "type": "string",
+      "parseSpec": {
+        "format": "json",
+        "timestampSpec": {
+          "column": "timestamp",
+          "format": "auto"
+        },
+        "dimensionsSpec": {
+          "dimensions": [
+            {"name":"pk", "type":"long"},
+            "username",
+            {"name":"followerCount", "type":"long"},
+            {"name":"followingCount", "type":"long"},
+            {"name":"timestamp", "type":"long"}
+          ]
+        }
+      }
+    },
+    "metricsSpec": [
+      {
+        "name": "count",
+        "type": "count"
+      },
+      {
+        "name": "userFollowersCount",
+        "fieldName": "followerCount",
+        "type": "doubleSum"
+      },
+      {
+        "name": "userFollowingCount",
+        "fieldName": "followingCount",
+        "type": "doubleSum"
+      }
+    ],
+    "granularitySpec": {
+      "type": "uniform",
+      "segmentGranularity": "HOUR",
+      "queryGranularity": "NONE"
+    }
+  },
+  "tuningConfig": {
+    "type": "kafka",
+    "maxRowsPerSegment": 5000000
+  },
+  "ioConfig": {
+    "topic": "test",
+    "consumerProperties": {
+      "bootstrap.servers": "localhost:9092"
+    },
+    "taskCount": 1,
+    "replicas": 1,
+    "taskDuration": "PT1H"
+  }
+}
