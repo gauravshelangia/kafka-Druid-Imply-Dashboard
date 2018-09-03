@@ -17,7 +17,7 @@
             {"name":"followerCount", "type":"long"},
             {"name":"followingCount", "type":"long"},
             {"name":"timestamp", "type":"long"},
-            {"name":"isSuspecious", "type":"boolean"}
+            {"followerRatio":"double"}
           ]
         }
       }
