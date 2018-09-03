@@ -5,5 +5,5 @@ This explain how you can setup Druid using Imply while consuming data from kafka
 * [Design Decision Doc.pdf] (Design Doc)
 * [mockstagram_supervisor_spec.json] (This file contains the supervisor config for ingesting data from kafka to druid.)
 * [mockstagram_supervisor_spec_test.json] (Test supervisor config) and [wikipedia-kafka-supervisor.json] (wikipedia supervisor config.)
-* [Solutoin to affable task](Solution MockStagram Affable.pdf) .
+* [Solutoin to affable task](https://github.com/gauravshelangia/kafka-Druid-Imply-Dashboard/blob/master/Design%20Decision%20Doc.pdf).
 * Some images to show the dashboard of [imply task and data](dataset-imply.png), [mockstagram-dashboard](dashboard-mockstagram.png). 
