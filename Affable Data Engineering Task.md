@@ -31,7 +31,7 @@ Your task is to create a data pipeline that extracts this data from the API and 
 
 This data will power time-series graphs on the dashboard like so:
 
-![Affable%20Data%20Engineering%20Task%200224f6259847442e9163c2431c3472b5/followers.png](Affable%20Data%20Engineering%20Task%200224f6259847442e9163c2431c3472b5/followers.png)
+![followers.png](Affable%20Data%20Engineering%20Task%200224f6259847442e9163c2431c3472b5/followers.png)
 
 Although the resolution of the time series in the graph is a single day, your solution should seek to push updates as frequently as possible. Ideally, your company wants to show minute by minute updates to the follower counts. 
 
